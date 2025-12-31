@@ -14,7 +14,7 @@ apt install -y sudo ufw fail2ban unattended-upgrades
 
 echo "== Creating deploy user =="
 if ! id "$DEPLOY_USER" >/dev/null 2>&1; then
-    adduser --disabled-password --gecos "" "$DEPLOY_USER"
+    adduser --gecos "" "$DEPLOY_USER"
 fi
 
 echo "== Adding deploy to sudo group =="
@@ -36,7 +36,7 @@ echo "Add your SSH public key to:"
 echo "$AUTH_KEYS"
 echo "Press ENTER to continue."
 read _
-sudo nano /home/deploy/.ssh/authorized_keys
+nano /home/deploy/.ssh/authorized_keys
 
 echo "== Hardening SSH configuration =="
 cp "$SSHD_CONFIG" "$SSHD_CONFIG.bak"
