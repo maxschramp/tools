@@ -36,6 +36,7 @@ echo "Add your SSH public key to:"
 echo "$AUTH_KEYS"
 echo "Press ENTER to continue."
 read _
+sudo nano /home/deploy/.ssh/authorized_keys
 
 echo "== Hardening SSH configuration =="
 cp "$SSHD_CONFIG" "$SSHD_CONFIG.bak"
